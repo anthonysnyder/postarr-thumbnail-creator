@@ -5,16 +5,6 @@ DIRECTORIES=(
     "XX_PLACEHOLDER_DIR_XX"
 )
 
-# Initialize counters for summary
-success_count=0
-poster_not_found_count=0
-failure_count=0
-
-# Initialize arrays to store the results
-thumbnails_created=()
-no_poster_found=()
-failures=()
-
 # Function to create thumbnail
 create_thumbnail() {
     local poster_path="$1"
@@ -52,12 +42,10 @@ process_folder() {
                 echo "Thumbnail created successfully: $thumb_path"
                 thumbnails_created+=("$thumb_path")
                 success_count=$((success_count + 1))
-            else
-                echo "Failed to create thumbnail for: $folder"
-                failures+=("$folder")
-                failure_count=$((failure_count + 1))
             fi
         fi
+    fi
+}
 
 # Loop through directories and their movie folders (only first level of subdirectories)
 for dir in "${DIRECTORIES[@]}"; do

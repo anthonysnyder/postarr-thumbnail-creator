@@ -58,12 +58,6 @@ process_folder() {
                 failure_count=$((failure_count + 1))
             fi
         fi
-    else
-        echo "No poster file found in folder: $folder"
-        no_poster_found+=("$folder")
-        poster_not_found_count=$((poster_not_found_count + 1))
-    fi
-}
 
 # Loop through directories and their movie folders (only first level of subdirectories)
 for dir in "${DIRECTORIES[@]}"; do

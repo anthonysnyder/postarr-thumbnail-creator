@@ -71,33 +71,3 @@ for dir in "${DIRECTORIES[@]}"; do
         process_folder "$folder"
     done
 done
-
-# Final output report
-echo -e "\nFinal Report:\n"
-
-echo "Thumbnails Created:"
-if [ ${#thumbnails_created[@]} -eq 0 ]; then
-    echo "None"
-else
-    for thumb in "${thumbnails_created[@]}"; do
-        echo "$thumb"
-    done
-fi
-
-echo -e "\nNo Poster Found:"
-if [ ${#no_poster_found[@]} -eq 0 ]; then
-    echo "None"
-else
-    for folder in "${no_poster_found[@]}"; do
-        echo "$folder"
-    done
-fi
-
-echo -e "\nFailures:"
-if [ ${#failures[@]} -eq 0 ]; then
-    echo "None"
-else
-    for failure in "${failures[@]}"; do
-        echo "$failure"
-    done
-fi
